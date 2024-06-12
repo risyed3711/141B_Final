@@ -1,0 +1,23 @@
+{
+  "team": {
+    "name": "Team 11",
+    "members": [
+      {
+        "name": "Rizwan Syed",
+        "email": "risyed@ucsd.edu",
+        "pid": "A16904100",
+        "os": "macos"
+      },
+      {
+        "name": "Ethan Song",
+        "email": "ecsong@ucsd.edu",
+        "pid": "A16643166",
+        "os": "windows"
+      }
+
+    ]
+  },
+  "project": {
+    "github_project_url": "https://github.com/orgs/UCSD-ECE141/projects/57"
+  }
+}

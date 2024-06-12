@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ECE141db"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ECE141db">
+				<Option output="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/ECE141db" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/SP24-ECE141B-Database-Team11/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/aarch64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/aarch64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 ECE141db"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ECE141db/fast">
+				<Option output="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/ECE141db" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/tmp/SP24-ECE141B-Database-Team11/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/aarch64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/aarch64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/aarch64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 ECE141db/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/tmp/SP24-ECE141B-Database-Team11/cmake-build-docker-arm/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/controller/AppController.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/database/Attribute.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/database/Database.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/database/Row.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/database/Schema.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/handler/AppHandler.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/handler/DBHandler.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/handler/Handler.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/handler/SQLHandler.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/handler/Statement.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/BasicTypes.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Compare.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Config.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/DBQuery.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Errors.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Faked.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Filters.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/FolderReader.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Helpers.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Join.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/LRUCache.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Logger.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/ParseHelper.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Remoting.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/misc/Timer.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/model/Model.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/storage/BlockIO.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/storage/Cache.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/storage/DatabaseStorageEngine.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/storage/Storable.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/storage/Storage.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/OutputValidator.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/ScriptMaker.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/ScriptRunner.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/TestAutomatic.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/TestManually.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/TestSequencer.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/testing/TestUtilities.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/tokenizer/Scanner.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/tokenizer/TokenSequencer.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/tokenizer/Tokenizer.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/tokenizer/keywords.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/include/view/View.hpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/controller/AppController.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/database/Attribute.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/database/Database.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/database/Row.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/database/Schema.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/main.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/misc/Faked.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/misc/Filters.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/misc/Join.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/misc/Logger.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/misc/ParseHelper.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/storage/BlockIO.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/storage/Storage.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/src/tokenizer/Tokenizer.cpp">
+			<Option target="ECE141db"/>
+		</Unit>
+		<Unit filename="/tmp/SP24-ECE141B-Database-Team11/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
