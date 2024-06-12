@@ -20,7 +20,7 @@ namespace ECE141 {
     //See also:
     enum class Keywords {
         about_kw=1, activate_kw, add_kw, all_kw, alter_kw, and_kw, as_kw, asc_kw, avg_kw,
-        auto_increment_kw, between_kw, boolean_kw, by_kw,
+        auto_increment_kw, backup_kw, between_kw, boolean_kw, by_kw,
         change_kw, changed_kw, char_kw, column_kw, count_kw, create_kw, cross_kw,
         current_date_kw, current_time_kw, current_timestamp_kw,
         database_kw, databases_kw, datetime_kw, decimal_kw, default_kw, delete_kw,
@@ -32,7 +32,7 @@ namespace ECE141 {
         max_kw, min_kw, modify_kw, not_kw,  null_kw,
         on_kw, or_kw, order_kw, outer_kw,
         primary_kw, query_kw, quit_kw,
-        references_kw, right_kw, row_kw, rows_kw, run_kw,
+        references_kw, restore_kw, right_kw, row_kw, rows_kw, run_kw,
         select_kw, self_kw, set_kw, show_kw, success_kw, sum_kw,
         table_kw, tables_kw, timestamp_kw, true_kw,
         unique_kw, unknown_kw, update_kw, use_kw,

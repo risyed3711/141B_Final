@@ -128,6 +128,7 @@ namespace ECE141 {
             std::make_pair("asc",       Keywords::asc_kw),
             std::make_pair("avg",       ECE141::Keywords::avg_kw),
             std::make_pair("auto_increment", Keywords::auto_increment_kw),
+            std::make_pair("backup", Keywords::backup_kw),
             std::make_pair("between",   ECE141::Keywords::between_kw),
             std::make_pair("boolean",   ECE141::Keywords::boolean_kw),
             std::make_pair("by",        ECE141::Keywords::by_kw),
@@ -191,6 +192,7 @@ namespace ECE141 {
             std::make_pair("query",     ECE141::Keywords::query_kw),
             std::make_pair("quit",      ECE141::Keywords::quit_kw),
             std::make_pair("references",ECE141::Keywords::references_kw),
+            std::make_pair("restore",   ECE141::Keywords::restore_kw),
             std::make_pair("right",     ECE141::Keywords::right_kw),
             std::make_pair("rows",      ECE141::Keywords::rows_kw),
             std::make_pair("run",       ECE141::Keywords::run_kw),
@@ -400,6 +402,11 @@ namespace ECE141 {
                     return DataTypes::no_type;
             }
         }
+
+        template<typename T, size_t aSize>
+        static bool in_array(T (&anArray)[aSize], const T &aValue) {
+            return std::find(std::begin(anArray), std::end(anArray), aValue) != std::end(anArray);
+        };
     };
 }
 #endif /* Helpers_h */

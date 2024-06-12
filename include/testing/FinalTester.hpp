@@ -61,9 +61,9 @@ namespace ECE141 {
 
         bool scriptTest(std::istream& anInput, std::stringstream& anOutput,
                         Validate aValidator, size_t aMaxErrors = 1) {
-            ECE141::AppController theApp();
+            ECE141::AppController theApp(anOutput);
             DBConnector theDBConnector{"localhost"};
-            ScriptRunner theRunner(theDBConnector);
+            ScriptRunner theRunner(theApp, theDBConnector);
             theRunner.run(anInput, anOutput, aMaxErrors);
             auto theBuffer{ anOutput.str() };
             return aValidator(theBuffer);

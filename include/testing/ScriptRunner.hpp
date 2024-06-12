@@ -23,6 +23,7 @@ namespace ECE141 {
   public:
       char semicolon = ';';
     ScriptRunner(AppController &anApp): app(anApp), theConnector(Config::getConnectionString()) {}
+    ScriptRunner(AppController &anApp, DBConnector& aConnector) : app(anApp) , theConnector(aConnector) {}
       
     std::string readCommand(std::istream &anInput) {
       std::string theResult;

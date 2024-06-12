@@ -79,6 +79,10 @@ namespace ECE141 {
       }
       else state=ConnectState::disconnected;
     }
+    DBConnector(const DBConnector& aCopy) {
+        state=aCopy.state;
+        server=aCopy.server;
+    }
 
     ~DBConnector() {
       if (isConnected()) {
