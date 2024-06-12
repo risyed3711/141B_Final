@@ -175,7 +175,7 @@ namespace ECE141{
                         break;
                     }
                     else if(myTokenizer.current().data==","
-                    &&myTokenizer.peek().data=="("){
+                    &&myTokenizer.more()&&myTokenizer.peek().data=="("){
                         myTokenizer.next(2);
                         theRawData.push_back(temp);temp.clear();
                     }
