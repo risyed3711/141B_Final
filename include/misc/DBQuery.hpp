@@ -31,7 +31,7 @@ namespace ECE141 {
   public:
 
     DBQuery(std::shared_ptr<Schema> aSchema=nullptr, bool allFields=true)
-      : all(allFields) , limit(-1) {fromTables.push_back(aSchema);descending=false;}
+      : all(allFields) , limit(-1), count(false) {fromTables.push_back(aSchema);descending=false;}
     
     DBQuery(const DBQuery &aQuery) {fromTables=aQuery.fromTables;}
     void addSchema(std::shared_ptr<Schema> aSchema) {
@@ -64,6 +64,9 @@ namespace ECE141 {
     size_t limit;
     Operand updatedValue;
     std::vector<Join> joins;
+    bool count;
+    std::string countParam;
+    std::string countDispName;
     //e.g. what if the user says, "SELECT name, age FROM students WHERE..."
 
   };

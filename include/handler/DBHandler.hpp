@@ -35,6 +35,8 @@ static std::map<ECE141::Keywords, std::string> dbMessages{
             ECE141::StatusResult theResult;
             myKeyWord=ECE141::Keywords::select_kw;
             aTokenizer.next();
+            if(aTokenizer.current().data=="count")
+                return parseCount(aTokenizer);
             theQuery.all = (aTokenizer.current().data == "*");
             if(!theQuery.all){
                 while(aTokenizer.current().keyword!=ECE141::Keywords::from_kw){
@@ -45,6 +47,18 @@ static std::map<ECE141::Keywords, std::string> dbMessages{
                 aTokenizer.next(-1);
             }
             aTokenizer.next();
+            return theResult;
+        }
+        ECE141::StatusResult parseCount(ECE141::Tokenizer& aTokenizer){
+            aTokenizer.next();
+            theQuery.count= true;
+            ECE141::TokenSequencer theTS(aTokenizer, nullptr);
+            theTS.skipIf("(");
+            theTS.captureIf(theQuery.countParam);
+            theTS.skipIf(")");
+            aTokenizer.skipIf(ECE141::Keywords::as_kw);
+            theTS.captureIf(theQuery.countDispName);
+            ECE141::StatusResult theResult;
             return theResult;
         }
         ECE141::StatusResult parseFrom(ECE141::Tokenizer& aTokenizer){
