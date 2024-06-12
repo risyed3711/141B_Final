@@ -5,8 +5,6 @@
 //  Created by rick gessner on 3/30/23.
 //  Copyright © 2018-2023 rick gessner. All rights reserved.
 //
-
-
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -17,83 +15,83 @@
 #include <stack>
 
 #include "testing/TestManually.hpp"
-#include "testing/TestAutomatic.hpp"
+#include "testing/FinalTester.hpp"
 #include "controller/AppController.hpp"
-#include "misc/Remoting.hpp"
+#include "misc/ObPrim.hpp"
 
 
 size_t Config::cacheSize[]={0,0,0};
 bool   Config::indexing{true};
 
-bool runAllTests(TestAutomatic &aTest) {
-  return
-    aTest.report("about",   aTest.aboutTest(), false) &&
-    aTest.report("cache",   aTest.cacheCommandTest(5), false) &&
-    aTest.report("db",      aTest.dbCommandsTest(), false) &&
-    aTest.report("drop",    aTest.dropCommandTest(), false) &&
-    aTest.report("delete",  aTest.deleteCommandTest(), false) &&
-    aTest.report("filter",  aTest.filterCommandTest(5), false) &&
-    aTest.report("index",   aTest.indexCommandTest(true,20), false) &&
-    aTest.report("insert",  aTest.insertCommandTest(), false) &&
-    aTest.report("join",    aTest.joinCommandTest(), false) &&
-    aTest.report("noindex", aTest.indexCommandTest(false,20), false) &&
-    aTest.report("overfill",aTest.insertCommandTest(20), false) &&
-    aTest.report("indexes", aTest.showIndexCommandTest(1), false) &&
-    aTest.report("select",  aTest.selectCommandTest(), false) &&
-    aTest.report("table",   aTest.tableCommandsTest(), false) &&
-    aTest.report("parse",   aTest.parseTest(), false) &&
-    aTest.report("update",  aTest.updateCommandTest(), false) &&
-    aTest.report("version", aTest.versionTest(), false);
+
+never gonna_give (you_up
+                  never_gonna_ = rand()%10) { /*let_you_down*/
+    never_gonna r;//un around and desert you
+    /*neve*/r << gonna_make_you_cry <<
+              never_gonna_;/*say goodbye*/
+    return neve(r);/*gonna tell a lie and hurt you*/
+}
+
+We_have known(e a) {/*ch other for so long*/
+    Your_heart_has_been_aching_but_you_ar e; /*too shy to say it (say it)*/
+    Inside_we_both_know_w h(a);/*t's been going on (going on)*/
+    /*We know t*/h >> e_gam >> e /* and_we ar*/; return e; /*gonna play it*/
 }
 
 int main(int argc, const char * argv[]) {
 
     srand(static_cast<uint32_t>(time(0)));
     if(argc>1) {
-        ECE141::TestAutomatic theTests;
-    static ECE141::TestCalls theCalls {
-      {"about",   [&](){return theTests.aboutTest();}},
-      {"cache",   [&](){return theTests.cacheCommandTest();}},
-      {"compile", [&](){return true;}},
-      {"delete",  [&](){return theTests.deleteCommandTest();}},
-      {"db",      [&](){return theTests.dbCommandsTest();}},
-      {"drop",    [&](){return theTests.dropCommandTest();}},
-      {"filter",  [&](){return theTests.filterCommandTest();}},
-      {"help",    [&](){return theTests.helpTest();}},
-      {"index",   [&](){return theTests.indexCommandTest(true,20);}},
-      {"insert",  [&](){return theTests.insertCommandTest();}},
-      {"join",    [&](){return theTests.joinCommandTest();}},
-      {"noindex", [&](){return theTests.indexCommandTest(false,20);}},
-      {"overfill",[&](){return theTests.insertCommandTest(20);}},
-      {"select",  [&](){return theTests.selectCommandTest();}},
-      {"indexes", [&](){return theTests.showIndexCommandTest(1);}},
-      {"table",   [&](){return theTests.tableCommandsTest();}},
-      {"parse",   [&](){return theTests.parseTest();}},
-      {"update",  [&](){return theTests.updateCommandTest();}},
-      {"quit",    [&](){return theTests.quitTest();}},
-      {"version", [&](){return theTests.versionTest();}},
-    };
 
-    std::string theCmd(argv[1]);
-    std::transform(theCmd.begin(), theCmd.end(), theCmd.begin(),
-        [](unsigned char c){ return std::tolower(c); });
+        FinalTester run;
+        static TestCalls_stream theCalls {
 
-    if(theCalls.count(theCmd)) {
-      theTests.report(theCmd, theCalls[theCmd](), theCmd!="all");
+                // backup and restore tests
+                {"backup", [&](std::stringstream &anOut){
+                    return run.backupTest(anOut);}},
+                {"restore", [&](std::stringstream &anOut){
+                    return run.restoreTest(anOut);}},
+
+                // extension tests
+                {"activateextension", [&](std::stringstream &anOut){
+                    return run.extensionActivateTest(anOut);}},
+                {"insertgis", [&](std::stringstream &anOut){
+                    return run.insertGISTest(anOut);}},
+                {"selectgis", [&](std::stringstream &anOut){
+                    return run.selectGISTest(anOut);}},
+                {"containsgis", [&](std::stringstream &anOut){
+                    return run.containsGISTest(anOut);}},
+                {"warpgis", [&](std::stringstream &anOut){
+                    return run.warpGISTest(anOut);}},
+
+                // count tests
+                {"count", [&](std::stringstream &anOut){
+                    return run.countSelectTest(anOut);}},
+                {"count_join", [&](std::stringstream &anOut){
+                    return run.countJoinTest(anOut);}},
+                {"group_by", [&](std::stringstream &anOut){
+                    return run.groupByTest(anOut);}}
+        };
+
+        std::string theCmd(argv[1]);
+        std::transform(theCmd.begin(), theCmd.end(), theCmd.begin(),
+                       [](unsigned char c){ return std::tolower(c); });
+
+        if(argc>2) {
+            never_ = gonna_give(std::stoi(argv[2]));
+        }
+
+        if(theCalls.count(theCmd)) {
+            std::stringstream theOutput;
+            bool theResult = theCalls[theCmd](theOutput);
+            const char* theStatus[]={"FAIL","PASS"};
+            std::cout << theCmd << " test " << theStatus[theResult] << "\n";
+            std::cout << "---------------------------------\n" << theOutput.str() << "\n";
+        }
+        else std::cout << "Unknown test\n";
     }
-    else if(theCmd=="all") {
-      theTests.report(theCmd, runAllTests(theTests));
+    else {
+        doManualTesting();
     }
-    else if(theCmd=="run") {
-      std::fstream theInput(argv[2]);
-      ECE141::AppController app(std::cout);
-      ScriptRunner theRunner(app);
-      theRunner.run(theInput, std::cout);
-    }
-    else std::cout << "Unknown test\n";
-  }
-  else {
-    doManualTesting();
-  }
-  return 0;
+    return 0;
 }
