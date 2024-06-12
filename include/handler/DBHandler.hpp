@@ -367,15 +367,29 @@ struct DBLevelProcessor : public Processor {
         stream.open(thePath.c_str(), std::ios::binary | std::ios::in | std::ios::out | std::ios::trunc);
 
         //add everything youve ever done to this one
+        bool create{false};
+        bool table{false};
+        int count{0};
         for(auto& token : theModel.allTokens){
+            if(token.keyword==ECE141::Keywords::create_kw){
+                create=true;
+            }
+            else if(token.keyword==ECE141::Keywords::table_kw){
+                table=true;
+            }
+            else if(create&&table){
+                count++;
+                create=false;
+                table=false;
+            }
             stream.write(reinterpret_cast<char*>(&token.data),sizeof(token.data));
             stream.clear();
         }
 
         auto time = timer.elapsed(t1);
         ECE141::staticView theView;
-        theView.setMessage("Query OK, 2 rows affected (" +
-                           std::to_string(time) + " secs)");
+        theView.setMessage("Query OK, " + std::to_string(count) + " rows affected (" +
+        std::to_string(time) + " secs)");
         aViewer(theView);
         ECE141::StatusResult theRes;
         //theRes.error = theResult ? ECE141::Errors::noError : ECE141::Errors::writeError;
