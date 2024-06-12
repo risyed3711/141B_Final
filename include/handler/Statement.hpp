@@ -9,11 +9,12 @@
 #include "misc/ParseHelper.hpp"
 
     struct Statement : public std::enable_shared_from_this<Statement> {
-        Statement() : error(ECE141::Errors::noError), isQuitting(false) {}
+        Statement() : error(ECE141::Errors::noError), isQuitting(false), myTokenizer(nullptr) {}
         ECE141::Keywords myKeyWord;
         bool isQuitting;
         std::string dbName;
         ECE141::Errors error;
+        ECE141::Tokenizer* myTokenizer;
     };
 namespace ECE141{
 struct ClauseHandler : public std::enable_shared_from_this<ClauseHandler>{

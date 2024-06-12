@@ -188,6 +188,7 @@ struct SQLLevelParser : public CORParser {
         std::shared_ptr<Statement> aStatement = std::make_shared<SQLStatement>();
         ECE141::TokenSequencer theSequencer(aTokenizer, aStatement);
         auto theStatement = std::static_pointer_cast<SQLStatement>(aStatement);
+        theStatement->myTokenizer=&aTokenizer;
 
         if(theSequencer.skipIf(ECE141::Keywords::create_kw).skipIf(ECE141::Keywords::table_kw)
         .captureIf(theStatement->sqlName).skipIf("(")
@@ -227,7 +228,7 @@ struct SQLLevelParser : public CORParser {
     }
     ECE141::StatusResult handle(std::shared_ptr<Statement> aStatement, ECE141::ViewListener& aViewer, ECE141::Model &theModel) override {
         if(aStatement->error==ECE141::Errors::noError)
-        {logger->log(LogLevel::Info,"handler found");return myProcessor.process(aStatement,aViewer, theModel);}
+        {logger->log(LogLevel::Info,"handler found");theModel.addTokens(*aStatement->myTokenizer);return myProcessor.process(aStatement,aViewer, theModel);}
         ECE141::StatusResult theBadResult;
         Processor::printErrorMessage(aViewer, errorMessages[aStatement->error]+"1");
         theBadResult.error=ECE141::Errors::unknownCommand;

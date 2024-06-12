@@ -24,22 +24,20 @@ namespace ECE141 {
       char semicolon = ';';
     ScriptRunner(AppController &anApp): app(anApp), theConnector(Config::getConnectionString()) {}
     ScriptRunner(AppController &anApp, DBConnector& aConnector) : app(anApp) , theConnector(aConnector) {}
-      
-    std::string readCommand(std::istream &anInput) {
-      std::string theResult;
-      char theChar{0};
-      while(semicolon!=theChar && !anInput.eof()) {
-        anInput >> theChar;
-        if(0==theChar) break;
-        theResult+=theChar;
-      }
-      
-      static const char* typeOfWhitespaces = " \t\n\r\f\v";
-      theResult.erase(theResult.find_last_not_of(typeOfWhitespaces) + 1);
-      theResult.erase(0,theResult.find_first_not_of(typeOfWhitespaces));
 
-      return theResult;
-    }
+      std::string readCommand(std::istream &anInput) {
+          std::string theResult;
+          char theChar{0};
+          if (anInput.eof()) return theResult;
+          if (std::getline(anInput, theResult, semicolon)) theResult += semicolon;
+          static const char *typeOfWhitespaces = " \t\n\r\f\v";
+          theResult.erase(theResult.find_last_not_of(typeOfWhitespaces) + 1);
+          theResult.erase(0, theResult.find_first_not_of(typeOfWhitespaces));
+          if(theResult==";")
+              theResult="";
+
+          return theResult;
+      }
         
     StatusResult run(std::istream &anInput,std::ostream &anOutput,
                      size_t aMaxErrors=1) {

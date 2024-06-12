@@ -62,6 +62,7 @@ namespace ECE141 {
     size_t        size() {return tokens.size();}
     size_t        pos() {return index;}
     size_t        remaining() {return index<size() ? size()-index :0;}
+    std::vector<Token> getTokens() {return tokens;}
 
                           //these might consume a token...
     bool          skipTo(Keywords aKeyword);

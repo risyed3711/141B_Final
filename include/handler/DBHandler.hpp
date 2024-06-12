@@ -352,6 +352,36 @@ struct DBLevelProcessor : public Processor {
         return theRes;
     }
 
+    static ECE141::StatusResult handleBackupCommand(std::shared_ptr<Statement> aStatement, ECE141::ViewListener& aViewer, ECE141::Model &theModel){
+        std::shared_ptr<DBStatement> theStatement = std::static_pointer_cast<DBStatement>(aStatement);
+        auto timer = ECE141::Config::getTimer();
+        auto t1 = timer.now();
+
+        //backend: create sql file in temp directory, add every token from the tokenizer to it
+        std::string thePath = ECE141::Config::getSQLPath(aStatement->dbName);
+
+        std::fstream stream;
+        stream.clear(); // Clear flag just-in-case...
+        stream.open(thePath.c_str(), std::ios::binary | std::ios::in | std::ios::out | std::ios::trunc); //force truncate if...
+        stream.close();
+        stream.open(thePath.c_str(), std::ios::binary | std::ios::in | std::ios::out | std::ios::trunc);
+
+        //add everything youve ever done to this one
+        for(auto& token : theModel.allTokens){
+            stream.write(reinterpret_cast<char*>(&token.data),sizeof(token.data));
+            stream.clear();
+        }
+
+        auto time = timer.elapsed(t1);
+        ECE141::staticView theView;
+        theView.setMessage("Query OK, 2 rows affected (" +
+                           std::to_string(time) + " secs)");
+        aViewer(theView);
+        ECE141::StatusResult theRes;
+        //theRes.error = theResult ? ECE141::Errors::noError : ECE141::Errors::writeError;
+        return theRes;
+    }
+
     std::map<ECE141::Keywords, ECE141::StatusResult(*)(std::shared_ptr<Statement> aStatement, ECE141::ViewListener& aViewer, ECE141::Model &theModel)> DBLevelProcessing = {
             {ECE141::Keywords::create_kw, &DBLevelProcessor::handleCreateCommand},
             {ECE141::Keywords::drop_kw, &DBLevelProcessor::handleDropCommand},
@@ -360,7 +390,8 @@ struct DBLevelProcessor : public Processor {
             {ECE141::Keywords::dump_kw, &DBLevelProcessor::handleDumpCommand},
             {ECE141::Keywords::select_kw, &DBLevelProcessor::handleSelectCommand},
             {ECE141::Keywords::update_kw, &DBLevelProcessor::handleUpdateCommand},
-            {ECE141::Keywords::delete_kw, &DBLevelProcessor::handleDeleteCommand}
+            {ECE141::Keywords::delete_kw, &DBLevelProcessor::handleDeleteCommand},
+            {ECE141::Keywords::backup_kw, &DBLevelProcessor::handleBackupCommand}
     };
 };
 
@@ -370,6 +401,7 @@ struct DBLevelParser : public CORParser {
         std::shared_ptr<Statement> aStatement = std::make_shared<DBStatement>(aModel);
         ECE141::TokenSequencer theSequencer(aTokenizer, aStatement);
         auto theStatement = std::static_pointer_cast<DBStatement>(aStatement);
+        theStatement->myTokenizer=&aTokenizer;
 
         if(theSequencer.skipIf(ECE141::Keywords::create_kw).skipIf(ECE141::Keywords::database_kw)
                 .captureIf(theStatement->dbName).isValid())
@@ -386,6 +418,8 @@ struct DBLevelParser : public CORParser {
         else if(theSequencer.skipIf(ECE141::Keywords::dump_kw).skipIf(ECE141::Keywords::database_kw)
                 .captureIf(theStatement->dbName).isValid())
             theStatement->myKeyWord=ECE141::Keywords::dump_kw;
+        else if(theSequencer.skipIf(ECE141::Keywords::backup_kw).captureIf(theStatement->dbName).isValid())
+            theStatement->myKeyWord=ECE141::Keywords::backup_kw;
         //try parsing select using clauses, which is much more complicated
         else if(auto theResult = theStatement->parse(aTokenizer)) {}
         else
@@ -408,7 +442,7 @@ struct DBLevelParser : public CORParser {
     }
     ECE141::StatusResult handle(std::shared_ptr<Statement> aStatement, ECE141::ViewListener& aViewer, ECE141::Model &theModel) override {
         if(aStatement->error==ECE141::Errors::noError)
-        {logger->log(LogLevel::Info,"handler found");return myProcessor.process(aStatement,aViewer, theModel);}
+        {logger->log(LogLevel::Info,"handler found");theModel.addTokens(*aStatement->myTokenizer);return myProcessor.process(aStatement,aViewer, theModel);}
         ECE141::StatusResult theBadResult;
         Processor::printErrorMessage(aViewer,errorMessages[aStatement->error]+"1");
         theBadResult.error=aStatement->error;

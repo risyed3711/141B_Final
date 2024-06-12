@@ -47,6 +47,18 @@ namespace ECE141 {
       theStream << Config::getStoragePath() << theSep << aDBName << ".db";
       return theStream.str();
     }
+
+      static std::string getSQLPath(const std::string &aDBName) {
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+          const std::string theSep="\\";
+#elif __APPLE__ || defined __linux__ || defined __unix__
+          const std::string theSep="/";
+#endif
+
+          std::ostringstream theStream;
+          theStream << Config::getStoragePath() << theSep << aDBName << ".sql";
+          return theStream.str();
+      }
       
     static Timer& getTimer() {
       static Timer theTimer;      

@@ -43,7 +43,15 @@ namespace ECE141{
             return ans;
         }
 
+        void addTokens(ECE141::Tokenizer& aTokenizer){
+            auto toks = aTokenizer.getTokens();
+            for(const auto& tok:toks){
+                allTokens.push_back(tok);
+            }
+        }
+
         std::shared_ptr<Database> currentDatabase;
+        std::vector<ECE141::Token> allTokens;
     };
 }
 

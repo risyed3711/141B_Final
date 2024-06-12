@@ -80,6 +80,9 @@ namespace ECE141 {
       else state=ConnectState::disconnected;
     }
     DBConnector(const DBConnector& aCopy) {
+        Channel theChannel("localhost");
+        DBServer &theServer = DBServer::getInstance();
+        theServer.registerClient(this, theChannel);
         state=aCopy.state;
         server=aCopy.server;
     }

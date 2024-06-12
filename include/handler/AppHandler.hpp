@@ -83,6 +83,7 @@
         std::shared_ptr<Statement> parseStatement(ECE141::Tokenizer &aTokenizer, ECE141::Model& aModel) override {
             std::shared_ptr<Statement> aStatement = std::make_shared<Statement>();
             ECE141::TokenSequencer theSequencer(aTokenizer, aStatement);
+            aStatement->myTokenizer=&aTokenizer;
 
             if(theSequencer.skipIf(ECE141::Keywords::about_kw).isValid())
                 aStatement->myKeyWord=ECE141::Keywords::about_kw;
@@ -105,7 +106,7 @@
         }
         ECE141::StatusResult handle(std::shared_ptr<Statement> aStatement, ECE141::ViewListener& aViewer, ECE141::Model &theModel) override {
             if(aStatement->error==ECE141::Errors::noError)
-            {logger->log(LogLevel::Info,"handler found");return myProcessor.process(aStatement,aViewer, theModel);}
+            {logger->log(LogLevel::Info,"handler found");theModel.addTokens(*aStatement->myTokenizer);return myProcessor.process(aStatement,aViewer, theModel);}
             ECE141::StatusResult theBadResult;
             theBadResult.error=aStatement->error;
             return theBadResult;
